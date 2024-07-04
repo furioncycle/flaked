@@ -6,12 +6,11 @@ with lib;
     ./bash.nix
     ./bind.nix
     ./binutils.nix
-    ./busybox.nix
     ./coreutils.nix
     ./curl.nix
-    ./diceware.nix
     ./dust.nix
     ./e2fsprogs.nix
+    ./fish.nix
     ./firefox.nix
     ./fzf.nix
     ./git.nix
@@ -24,13 +23,11 @@ with lib;
     ./links.nix
     ./lsof.nix
     ./mtr.nix
-    ./nano.nix
     ./ncdu.nix
     ./pciutils.nix
     ./psmisc.nix
     ./rsync.nix
     ./strace.nix
-    ./tmux.nix
     ./vim.nix
     ./wget.nix
   ];

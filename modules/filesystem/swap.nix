@@ -46,8 +46,8 @@ in
   };
 
   config = mkMerge [
-    # Don't use BTRFS subvolume if RAID is involved.
-    (mkIf ((cfg.enable) && (!config.host.hardware.raid.enable) && (cfg.type == "file")) {
+    # Don't use BTRFS subvolume if RAID is involved. (!config.host.hardware.raid.enable)     
+    (mkIf ((cfg.enable) && (cfg.type == "file")) {
       fileSystems = mkIf (config.host.filesystem.btrfs.enable) {
         "/swap".options = [ "subvol=swap" "nodatacow" "noatime" ];
       };
@@ -70,7 +70,8 @@ in
     })
 
   {
-    systemd.services = mkIf ((cfg.type == "file") && (!config.host.hardware.raid.enable) && (cfg.enable)) {
+    #(!config.host.hardware.raid.enable) &&
+    systemd.services = mkIf ((cfg.type == "file") &&  (cfg.enable)) {
       create-swapfile =  {
         serviceConfig.Type = "oneshot";
         wantedBy = [ "swap-swapfile.swap" ];

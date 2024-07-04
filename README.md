@@ -2,30 +2,16 @@
 
 Here are my [NixOS](https://nixos.org/) configurations.
 
-These allows for system portability and configuration from machine to machine with a small amount of changes (usually disks, partitions, or hardware changes) once and enjoy a many times forward. The configurations allow for a base system to be installed, with a core amount of applications to operate. They shine when you add something like [Home Manager](https://nix-community.github.io/home-manager/) is installed to allow for discrete per-user configuration of the environment. If you are looking for that configuration head on over to my [Nix Home Manager | Dotfiles Repository](https://github.com/tiredofit/home).
+These allows for system portability and configuration from machine to machine with a small amount of changes (usually disks, partitions, or hardware changes) once and enjoy a many times forward. The configurations allow for a base system to be installed, with a core amount of applications to operate. They shine when you add something like [Home Manager](https://nix-community.github.io/home-manager/) is installed to allow for discrete per-user configuration of the environment. If you are looking for that configuration head on over to my [Nix Home Manager | Dotfiles Repository](https://github.com/furioncycle/hogar).
 
-If you would like to base your own configuration from this, you will need to be able to use [Nix flakes](https://nixos.wiki/wiki/Flakes).
-
-**Highlights**:
-
-- BTRFS subvolume implementation with **hourly automatic snapshots**
-- **Impermanence** toggled for a clean installation on each reboot
-- Toggled **full disk encryption**
-- Support for **RAID** configurations
-- Deployment of secrets using **sops-nix**
-- Some real interesting **bash scripts** for automating common tasks
-- **Declarative** **themes** and **wallpapers** with **nix-colors**
-
-- I ~sort of blew~spent the summer of 2023 moving into this configuration after waving a fond farewell to near 2 decades of running Arch Linux. This, as with life, is still WIP. I documented the process on the [Tired of IT! NixOS](https://notes.tiredofit.ca/books/linux/chapter/nixos) chapter on my website.
+**DO NOT USE THIS REPO**
 
 ## Tree Structure
 
 - `flake.nix`: Entrypoint for NixOS configurations.
 - `hosts`: Host Configurations
   - `common`: Shared configurations consumed by all hosts.
-    - `secrets`: Secrets that are available to all users
   - `<host_a>`: "host_a" specific hardware and host configuration
-    - `secrets`: Secrets that are specific to the 'host_a' host
   - `...`: And so on as above with other hosts
 - `lib`: Helpers, functions, libraries and timesavers
 - `modules`: Modules that are specific to this implementation and allow for toggled configuration
@@ -44,7 +30,7 @@ If you would like to base your own configuration from this, you will need to be 
 
 ### Manual approach
 
-Get your installer disc booted up and your disks partitioned. I took notes on how I did an install with [BTRFS and encryption on my website](https://notes.tiredofit.ca/books/linux/page/installing-nixos-encrypted-btrfs-impermanance). Once you have your partitions created and subvolumes mounted then we can continue..
+Get your installer disc booted up and your disks partitioned.
 
 - Generate your `hardware-configuration.nix` file.
 
@@ -56,7 +42,7 @@ nixos-generate-config --root /mnt --file /tmp
 
 ```
 nix-shell -p git nixFlakes
-git clone https://github.com/tiredofit/nixos-config.git /mnt/etc/nixos
+git clone https://github.com/furioncycle/flaked.git /mnt/etc/nixos
 ```
 
 - Either create a new host entry in `flake.nix` and add associated bits to the `hosts` folder or modify one of the existing hosts `hardware-configuration.nix` with what you generated above. That's kinda janky, but it'll get you started..
@@ -66,18 +52,6 @@ git clone https://github.com/tiredofit/nixos-config.git /mnt/etc/nixos
 ```
 nixos-install --root /mnt --flake /mnt/etc/nixos#<host>
 ```
-
-### Optimized deployment via script
-
-- Use the included deployment script on an Arch or NixOS system to:
-  - Add remove new hosts and templates
-  - Update Flake
-  - Update running system
-  - Generate SSH Key and AGE keys per host
-  - Update host / repository secrets
-  - Remotely install a new system based on configuration via SSH
-  - Build locally and remotely update an in place system via SSH
-
 ### Configuring a system
 
 Features are toggleable via the `host` configuration options. Have a look insie the `modules/nixos` folder for options available.
@@ -114,7 +88,7 @@ sudo nixos-rebuild switch --flake /etc/nixos/#<host>
 
 ### Managing Secrets
 
-I document the process of getting encrypted secrets created and keeping up to date on my website. [Tired of IT! Secrets Management](https://notes.tiredofit.ca/books/linux/page/secrets-management).
+TODO - implement again
 
 # License
 

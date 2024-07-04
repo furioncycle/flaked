@@ -3,11 +3,8 @@
 with lib;
 {
   imports = [
-    ./dave
-    ./ireen
-    ./media
     ./root
     ./ttecho
-    ./qiface
+    # ./qiface
   ];
 }

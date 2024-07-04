@@ -5,6 +5,7 @@
     systemPackages = with pkgs; [
       git
       nvd
+      ripgrep
     ];
   };
 
@@ -37,7 +38,7 @@
   };
 
   nixpkgs = {
-    overlays = (builtins.attrValues outputs.overlays);# ++ outputs.systemSpecificOverlays; 
+    overlays = (builtins.attrValues outputs.overlays);
     config = {
       allowBroken = mkDefault false;
       allowUnfree = mkDefault true;
@@ -63,7 +64,7 @@
       nvd diff $(ls -dv /nix/var/nix/profiles/system-*-link | tail -2) > /var/log/activations/$(date +'%Y%m%d%H%M%S')-$(ls -dv /nix/var/nix/profiles/system-*-link | tail -1 | cut -d '-' -f 2)-$(readlink $(ls -dv /nix/var/nix/profiles/system-*-link | tail -1) | cut -d - -f 4-).log
     '';
     autoUpgrade.enable = mkDefault false;
-    stateVersion = mkDefault "23.11";
+    stateVersion = mkDefault "24.05";
   };
 }
 

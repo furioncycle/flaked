@@ -11,7 +11,6 @@ with lib;
     ./keyboard.nix
     ./monitors.nix
     ./printing.nix
-    ./raid.nix
     ./scanner.nix
     ./sound.nix
     ./touchpad.nix

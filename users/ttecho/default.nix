@@ -17,7 +17,7 @@ in
   config = mkIf config.host.user.ttecho.enable {
     users.users.ttecho = {
       isNormalUser = true;
-      shell = pkgs.bashInteractive;
+      shell = pkgs.fish;
       uid = 6969;
       extraGroups = [
         "wheel"

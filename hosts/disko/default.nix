@@ -22,7 +22,7 @@
     };
     hardware = {
       cpu = "vm-amd";
-      raid.enable = true;
+      # raid.enable = true; TODO - raid maybe
       sound = {
         enable = false;
         server = "pulseaudio";
@@ -34,7 +34,7 @@
     };
     role = "vm";
     user = {
-      dave.enable = true;
+      ttecho.enable = true;
       root.enable = true;
     };
   };

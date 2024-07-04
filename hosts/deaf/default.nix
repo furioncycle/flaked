@@ -1,11 +1,12 @@
 
+
 { config, inputs, pkgs, ...}: {
 
   imports = [
     inputs.nur.nixosModules.nur
-    ./hardware-configuration.nix
-    inputs.disko.nixosModules.disko
-    ./disko-config.nix
+    ./configuration.nix
+    # inputs.disko.nixosModules.disko
+    # ./disko-config.nix
     ../common
   ];
 
@@ -25,11 +26,14 @@
       graphics = {
         enable = true;
         backend = "x";
+        # displayManager.manager = "sddm";
+        # windowManager.manager = "hyprland";
+        
       };
     };
     filesystem = {
       swap = {
-        partition = "disk/by-partlabel/swap";
+        partition = "disk/by-uuid/ca380f70-e44b-4b9a-ab6f-4a9c6620fedc";
       };
     };
     hardware = {
@@ -40,7 +44,7 @@
       };
     };
     network = {
-      hostname = "slowmo";
+      hostname = "deaf";
     };
     role = "laptop";
     user = {

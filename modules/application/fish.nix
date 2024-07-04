@@ -1,20 +1,22 @@
 {config, lib, pkgs, ...}:
 let
-  cfg = config.host.application.helix;
+   cfg = config.host.application.fish;
 in
-  with lib;
+   with lib;
 {
   options = {
-    host.application.helix = {
+    host.application.fish = {
       enable = mkOption {
         default = false;
         type = with types; bool;
-        description = "Enable helix";
+        description = "Enable fish";
       };
     };
   };
 
   config = mkIf cfg.enable {
-    
-  }
+    programs = {
+      fish.enable = true;
+    };
+  };
 }

@@ -24,7 +24,6 @@
     hardware = {
       cpu = "amd";
       gpu = "integrated-amd";
-      raid.enable = false;        # This line can be removed if not needed as it is already default set by the role template
       sound = {
         server = "pulseaudio";
       };

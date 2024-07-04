@@ -42,9 +42,6 @@ in
           enable = mkDefault false;                   # Maybe if we were doing openCL
         };
         virtualization = {
-          docker = {
-            enable = mkDefault true;
-          };
         };
       };
       filesystem = {
@@ -64,7 +61,7 @@ in
       hardware = {
         bluetooth.enable = mkDefault false;
         printing.enable = mkDefault false;            # My use case never involves a print server
-        raid.enable = mkDefault false;
+        # raid.enable = mkDefault false;
         scanning.enable = mkDefault false;
         sound.enable = mkDefault false;
         webcam.enable = mkDefault false;

@@ -9,7 +9,7 @@ in
     host.feature.boot = {
       efi = {
         enable = mkOption {
-          default = true;
+          default = false;
           type = with types; bool;
           description = "Enables booting via EFI";
         };

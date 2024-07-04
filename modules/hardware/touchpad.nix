@@ -36,18 +36,18 @@ in
     services = {
       xserver.libinput = {
         enable = true;
-        mouse = {
-          accelProfile = mkDefault "flat";
-          accelSpeed = mkDefault "0";
-          middleEmulation = mkDefault false;
-        };
+        # mouse = {
+          # accelProfile = mkDefault "flat";
+          # accelSpeed = mkDefault "0";
+          # middleEmulation = mkDefault false;
+        # };
         touchpad = {
           clickMethod = "clickfinger";
-          disableWhileTyping = mkDefault true;
-          horizontalScrolling = mkDefault false;
-          naturalScrolling = mkDefault false;
-          sendEventsMode = mkDefault "enabled";
-          tapping = mkDefault true;
+          # disableWhileTyping = mkDefault true;
+          # horizontalScrolling = mkDefault false;
+          # naturalScrolling = mkDefault false;
+          # sendEventsMode = mkDefault "enabled";
+          # tapping = mkDefault true;
         };
       };
     };
