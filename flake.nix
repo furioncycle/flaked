@@ -40,7 +40,6 @@
       inherit (self) outputs;
       lib = nixpkgs.lib;
       systems = [ "x86_64-linux" "aarch64-linux" ];
-      system = "x86_64-linux";
       forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
       pkgsFor = lib.genAttrs systems (system: import nixpkgs {
         inherit system;

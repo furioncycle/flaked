@@ -22,4 +22,43 @@
       ssh-to-age
     ];
   };
+  ada = pkgs.mkShell {
+    buildInputs = with pkgs; [
+      alire
+    ];
+  };
+  alloy = pkgs.mkShell {
+    buildInputs = with pkgs; [
+      alloy6
+    ];
+  };
+  dafny = pkgs.mkShell {
+    buildInputs = with pkgs; [
+      dotnet-sdk
+      dafny
+    ];
+  };
+  forge = pkgs.mkShell {
+    buildInputs = with pkgs; [
+      racket
+      jdk
+    ];
+    nativeBuildInputs = [ pkgs. makeWrapper ];
+
+    shellHook = ''
+       raco pkg install --auto forge froglet
+    '';
+  };
+  tla = pkgs.mkShell {
+    buildInputs = with pkgs; [
+      tlaplusToolbox
+    ];
+  };
+  uiua = pkgs.mkShell {
+    buildInputs = with pkgs; [
+      uiua
+    ];
+  };
+  
+  
 }
