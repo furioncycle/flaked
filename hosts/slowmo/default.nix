@@ -24,7 +24,9 @@
     feature = {
       graphics = {
         enable = true;
-        backend = "x";
+        backend = "wayland";
+        windowManager.manager = "hyprland";
+        displayManager.manager = "sddm";
       };
     };
     filesystem = {
@@ -44,32 +46,8 @@
     };
     role = "laptop";
     user = {
-      # qiface.enable = true;
       ttecho.enable = true;
       root.enable = true;
-    };
-  };
-
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      cinnamon.enable = true;
-      xterm.enable = false;
-      session = [
-        {
-          name = "home-manager";
-          start = ''
-            ${pkgs.runtimeShell} $HOME/.hm-xsession &
-            waitPID=$!
-          '';
-        }
-        {
-          name = "cinnamon";
-          start = ''
-            cinnamon
-          '';
-        }
-      ];
     };
   };
 }
