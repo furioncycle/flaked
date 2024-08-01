@@ -267,19 +267,19 @@ in
       ];
     };
 
-    sound = lib.mkMerge [
-      (lib.mkIf (cfg.enable && cfg.server == "pulseaudio") {
-        enable = true;
-      })
+    # sound = lib.mkMerge [
+    #   (lib.mkIf (cfg.enable && cfg.server == "pulseaudio") {
+    #     enable = true;
+    #   })
 
-      (lib.mkIf (cfg.enable && cfg.server == "pipewire") {
-        enable = false;
-      })
+    #   (lib.mkIf (cfg.enable && cfg.server == "pipewire") {
+    #     enable = false;
+    #   })
 
-     (lib.mkIf (! cfg.enable ) {
-        enable = false;
-      })
-     ];
+    #  (lib.mkIf (! cfg.enable ) {
+    #     enable = false;
+    #   })
+    #  ];
 
     hardware.pulseaudio = mkIf (cfg.enable && cfg.server == "pulseaudio") {
       enable = true;

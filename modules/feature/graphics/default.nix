@@ -36,7 +36,6 @@
     hardware = {
       opengl = mkIf ((config.host.feature.graphics.enable) && (config.host.feature.graphics.acceleration)) {
         enable = true;
-        driSupport = true;
         driSupport32Bit = true;
       };
     };
