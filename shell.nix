@@ -32,12 +32,6 @@
       alloy6
     ];
   };
-  dafny = pkgs.mkShell {
-    buildInputs = with pkgs; [
-      dotnet-sdk
-      dafny
-    ];
-  };
   forge = pkgs.mkShell {
     buildInputs = with pkgs; [
       racket

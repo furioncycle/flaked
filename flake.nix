@@ -60,6 +60,14 @@
         "x86_64-linux"
       ];
       perSystem = { config, ... }: { };
+      templates = {
+        dafny = {
+          description = ''
+            Everything needed to run dafny
+          '';
+          path = ./templates/dafny;
+        };
+      };
     };
 
   inputs = {
