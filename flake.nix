@@ -55,19 +55,21 @@
             specialArgs = { inherit inputs outputs; };
           };
         };
+
+        templates = {
+          dafny = {
+            description = ''
+              Everything needed to run dafny
+            '';
+            path = ./templates/dafny;
+          };
+        };
       };
       systems = [
         "x86_64-linux"
       ];
       perSystem = { config, ... }: { };
-      templates = {
-        dafny = {
-          description = ''
-            Everything needed to run dafny
-          '';
-          path = ./templates/dafny;
-        };
-      };
+
     };
 
   inputs = {
