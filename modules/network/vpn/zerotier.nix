@@ -1,17 +1,17 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.network.vpn.zerotier;
   metrics_symlink =
     if cfg.metrics
-      then ""
-      else "ln -sf /dev/null /var/lib/zerotier-one/metrics.prom";
+    then ""
+    else "ln -sf /dev/null /var/lib/zerotier-one/metrics.prom";
   metrics_cleanup =
     if cfg.metrics
-      then ""
-      else "rm -rf /var/lib/zerotier-one/metrics.prom";
+    then ""
+    else "rm -rf /var/lib/zerotier-one/metrics.prom";
 in
-  with lib;
+with lib;
 {
   options = {
     host.network.vpn.zerotier = {
@@ -113,15 +113,15 @@ in
 
     sops.secrets = {
       ## Only read these secrets if the secret exists
-      "zerotier/networks" = mkIf (builtins.pathExists ../../../hosts/${config.host.network.hostname}/secrets/zerotier/networks.yaml)  {
+      "zerotier/networks" = mkIf (builtins.pathExists ../../../hosts/${config.host.network.hostname}/secrets/zerotier/networks.yaml) {
         sopsFile = ../../../hosts/${config.host.network.hostname}/secrets/zerotier/networks.yaml;
         restartUnits = [ "zerotierone.service" ];
       };
-      "zerotier/identity_public" = mkIf (builtins.pathExists ../../../hosts/${config.host.network.hostname}/secrets/zerotier/identity.yaml)  {
+      "zerotier/identity_public" = mkIf (builtins.pathExists ../../../hosts/${config.host.network.hostname}/secrets/zerotier/identity.yaml) {
         sopsFile = ../../../hosts/${config.host.network.hostname}/secrets/zerotier/identity.yaml;
         restartUnits = [ "zerotierone.service" ];
       };
-      "zerotier/identity_private" = mkIf (builtins.pathExists ../../../hosts/${config.host.network.hostname}/secrets/zerotier/identity.yaml)  {
+      "zerotier/identity_private" = mkIf (builtins.pathExists ../../../hosts/${config.host.network.hostname}/secrets/zerotier/identity.yaml) {
         sopsFile = ../../../hosts/${config.host.network.hostname}/secrets/zerotier/identity.yaml;
         restartUnits = [ "zerotierone.service" ];
       };

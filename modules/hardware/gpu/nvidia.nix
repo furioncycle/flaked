@@ -19,8 +19,9 @@ let
 
   device = config.host.hardware;
   backend = config.host.feature.graphics.backend;
-in {
-  config = mkIf (device.gpu == "nvidia" || device.gpu == "hybrid-nvidia")  {
+in
+{
+  config = mkIf (device.gpu == "nvidia" || device.gpu == "hybrid-nvidia") {
     nixpkgs.config.allowUnfree = true;
 
     services.xserver = mkMerge [
@@ -28,7 +29,7 @@ in {
         videoDrivers = [ "nvidia" ];
       }
 
-      (mkIf ( backend == "x") {
+      (mkIf (backend == "x") {
         # disable DPMS
         monitorSection = ''
           Option "DPMS" "false"
@@ -44,7 +45,7 @@ in {
       })
     ];
 
-boot = {
+    boot = {
       blacklistedKernelModules = [
         "nouveau"
       ];
@@ -73,8 +74,8 @@ boot = {
         vulkan-loader
         vulkan-tools
         vulkan-validation-layers
-      #] ++  mkIf device.gpu == "hybrid-nvidia"  [ ## TODO Fix
-      #  "nvidia-offload"
+        #] ++  mkIf device.gpu == "hybrid-nvidia"  [ ## TODO Fix
+        #  "nvidia-offload"
       ];
     };
 

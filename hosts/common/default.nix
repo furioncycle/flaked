@@ -1,5 +1,5 @@
 { config, outputs, lib, pkgs, ... }:
-  with lib;
+with lib;
 {
   imports = [
     ./locale.nix
@@ -19,11 +19,11 @@
     # kernel.sysctl = {
     #   "vm.dirty_ratio" = mkDefault 6;                   # sync disk when buffer reach 6% of memory
     # };
-    kernelPackages = pkgs.linuxPackages_latest;         # Latest kernel
+    kernelPackages = pkgs.linuxPackages_latest; # Latest kernel
   };
 
   environment = {
-    defaultPackages = [];                               # Don't install any default programs, force everything
+    defaultPackages = [ ]; # Don't install any default programs, force everything
     enableAllTerminfo = mkDefault false;
   };
 
@@ -69,13 +69,13 @@
       domainname = mkDefault "deaf.audio";
     };
     service = {
-       logrotate = {
-         enable = mkDefault true;
-       };
-       # ssh = {
-         # enable = mkDefault true;
+      logrotate = {
+        enable = mkDefault true;
+      };
+      # ssh = {
+      # enable = mkDefault true;
       #   harden = mkDefault true;
-       # };
+      # };
     };
   };
   security = {

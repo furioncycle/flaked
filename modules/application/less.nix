@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.application.less;
 in
-  with lib;
+with lib;
 {
   options = {
     host.application.less = {
@@ -20,10 +20,10 @@ in
       less = {
         enable = true;
         commands = {
-           s = "back-line";
-           t = "forw-line";
-         };
-       };
+          s = "back-line";
+          t = "forw-line";
+        };
+      };
       bash.shellAliases = {
         "more" = "less"; # pager
       };

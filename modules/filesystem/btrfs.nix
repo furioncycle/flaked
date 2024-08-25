@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.filesystem.btrfs;
 in
-  with lib;
+with lib;
 {
   options = {
     host.filesystem.btrfs = {
@@ -13,7 +13,7 @@ in
         description = "Enables settings for a BTRFS installation including snapshots";
       };
       autoscrub = mkOption {
-       default = true;
+        default = true;
         type = with types; bool;
         description = "Enable autoscrubbing of file systems";
       };
@@ -28,13 +28,13 @@ in
     };
 
     fileSystems = {
-      "/".options = [ "subvol=root" "compress=zstd" "noatime"  ];
-      "/home".options = [ "subvol=home/active" "compress=zstd" "noatime"  ];
-      "/home/.snapshots".options = [ "subvol=home/snapshots" "compress=zstd" "noatime"  ];
-      "/nix".options = [ "subvol=nix" "compress=zstd" "noatime"  ];
-      "/var/local".options = [ "subvol=var_local/active" "compress=zstd" "noatime"  ];
-      "/var/local/.snapshots".options = [ "subvol=var_local/snapshots" "compress=zstd" "noatime"  ];
-      "/var/log".options = [ "subvol=var_log" "compress=zstd" "noatime"  ];
+      "/".options = [ "subvol=root" "compress=zstd" "noatime" ];
+      "/home".options = [ "subvol=home/active" "compress=zstd" "noatime" ];
+      "/home/.snapshots".options = [ "subvol=home/snapshots" "compress=zstd" "noatime" ];
+      "/nix".options = [ "subvol=nix" "compress=zstd" "noatime" ];
+      "/var/local".options = [ "subvol=var_local/active" "compress=zstd" "noatime" ];
+      "/var/local/.snapshots".options = [ "subvol=var_local/snapshots" "compress=zstd" "noatime" ];
+      "/var/log".options = [ "subvol=var_log" "compress=zstd" "noatime" ];
       "/var/log".neededForBoot = true;
     };
 
@@ -44,9 +44,9 @@ in
           onCalendar = "*-*-* *:00:00";
           settings = {
             timestamp_format = "long";
-            preserve_day_of_week = "sunday" ;
-            preserve_hour_of_day = "0" ;
-            snapshot_preserve = "48h 10d 4w 12m 10y" ;
+            preserve_day_of_week = "sunday";
+            preserve_hour_of_day = "0";
+            snapshot_preserve = "48h 10d 4w 12m 10y";
             snapshot_preserve_min = "2d";
             volume."/home" = {
               snapshot_create = "always";
@@ -63,7 +63,7 @@ in
       };
       btrfs.autoScrub = mkIf cfg.autoscrub {
         enable = true;
-        fileSystems = ["/"];
+        fileSystems = [ "/" ];
       };
     };
   };

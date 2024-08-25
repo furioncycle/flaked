@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.application.strace;
 in
-  with lib;
+with lib;
 {
   options = {
     host.application.strace = {

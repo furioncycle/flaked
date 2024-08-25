@@ -16,7 +16,7 @@
     ];
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-parts, ...}:
+  outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib;
@@ -26,11 +26,11 @@
         inherit system;
         config.allowUnfree = true;
       });
-      
-    in 
+
+    in
     flake-parts.lib.mkFlake { inherit inputs; } {
       flake = {
-        
+
         inherit lib;
         nixosModules = import ./modules;
         overlays = import ./overlays { inherit inputs outputs; };
@@ -45,22 +45,21 @@
             specialArgs = { inherit inputs outputs; };
           };
 
-          deaf = lib.nixosSystem { 
+          deaf = lib.nixosSystem {
             modules = [ ./hosts/deaf ];
-            specialArgs =  { inherit inputs outputs; };
+            specialArgs = { inherit inputs outputs; };
           };
 
           cell = lib.nixosSystem {
             modules = [ ./hosts/cell ];
             specialArgs = { inherit inputs outputs; };
           };
-        };      
+        };
       };
       systems = [
         "x86_64-linux"
       ];
-      perSystem = { config, ... }:{
-      };
+      perSystem = { config, ... }: { };
     };
 
   inputs = {

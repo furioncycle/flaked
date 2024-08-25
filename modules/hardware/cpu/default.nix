@@ -1,4 +1,4 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 with lib;
 {
   imports = [
@@ -10,7 +10,7 @@ with lib;
   options = {
     host.hardware = {
       cpu = mkOption {
-        type = types.enum ["amd" "ampere" "intel" "vm-amd" "vm-intel" null];
+        type = types.enum [ "amd" "ampere" "intel" "vm-amd" "vm-intel" null ];
         default = null;
         description = "Type of CPU: intel, vm-intel, amd, vm-amd";
       };

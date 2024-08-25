@@ -1,5 +1,5 @@
-{config, lib, pkgs, ...}:
-  with lib;
+{ config, lib, pkgs, ... }:
+with lib;
 {
   imports = [
     ./backend
@@ -20,13 +20,13 @@
         description = "Enables graphics acceleration";
       };
       backend = mkOption {
-        type = types.enum ["x" "wayland" null];
+        type = types.enum [ "x" "wayland" null ];
         default = null;
         description = "Backend of displayManager";
       };
       monitors = mkOption {
         type = with types; listOf str;
-        default = [];
+        default = [ ];
         description = "Declare the order of monitors in Window manager configurations";
       };
     };

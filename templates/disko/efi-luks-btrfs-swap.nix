@@ -30,7 +30,7 @@ in
               };
             };
             luks = {
-              label = "encrypted" ;
+              label = "encrypted";
               size = "100%";
               content = {
                 type = "luks";

@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.application.iftop;
 in
-  with lib;
+with lib;
 {
   options = {
     host.application.iftop = {

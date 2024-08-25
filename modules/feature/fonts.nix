@@ -1,10 +1,10 @@
- {config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.feature.fonts;
   graphics = config.host.feature.graphics;
 in
-  with lib;
+with lib;
 {
   options = {
     host.feature.fonts = {
@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-  # all fonts are linked to /nix/var/nix/profiles/system/sw/share/X11/fonts
+    # all fonts are linked to /nix/var/nix/profiles/system/sw/share/X11/fonts
     fonts = mkIf graphics.enable {
       # use fonts specified by user rather than default ones
       enableDefaultPackages = false;
@@ -42,12 +42,14 @@ in
         weather-icons
 
         # nerdfonts
-        (nerdfonts.override { fonts = [
-          "DroidSansMono"
-          "Hack"
-          "JetBrainsMono"
-          "Noto"
-        ];})
+        (nerdfonts.override {
+          fonts = [
+            "DroidSansMono"
+            "Hack"
+            "JetBrainsMono"
+            "Noto"
+          ];
+        })
       ];
 
       # user defined fonts

@@ -1,8 +1,8 @@
-{config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in
-  with lib;
+with lib;
 {
   options = {
     host.user.ttecho = {

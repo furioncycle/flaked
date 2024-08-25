@@ -14,7 +14,7 @@ let
     then "publickey password keyboard-interactive"
     else "publickey,password publickey,keyboard-interactive";
 in
-  with lib;
+with lib;
 {
   options = {
     host.service.ssh = {
@@ -65,18 +65,17 @@ in
               }
             ]
           else
-            [ {
-                path = "/etc/ssh/ssh_host_ed25519_key";
-                type = "ed25519";
-              }
-            ];
+            [{
+              path = "/etc/ssh/ssh_host_ed25519_key";
+              type = "ed25519";
+            }];
         listenAddresses = [
           {
             addr = mkDefault cfg.listenIP;
             port = mkDefault cfg.listenPort;
           }
         ];
-        openFirewall = mkDefault true ;
+        openFirewall = mkDefault true;
         startWhenNeeded = mkDefault false;
         settings = {
           AuthenticationMethods = mkDefault authMethods;
@@ -111,7 +110,7 @@ in
             "umac-128-etm@openssh.com"
           ];
           PasswordAuthentication = mkDefault true;
-          PermitRootLogin = mkDefault "no" ;
+          PermitRootLogin = mkDefault "no";
           PermitTunnel = mkDefault true;
           PermitTTY = mkDefault true;
           PrintLastLog = mkDefault true;

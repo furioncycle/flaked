@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.hardware.webcam;
 in
-  with lib;
+with lib;
 {
   options = {
     host.hardware.webcam = {
@@ -16,6 +16,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    boot.kernelParams = ["uvcvideo"];
+    boot.kernelParams = [ "uvcvideo" ];
   };
 }

@@ -6,7 +6,7 @@ with lib;
     host.feature.graphics.displayManager.greetd = {
       greeter = {
         name = mkOption {
-          type = types.enum ["gtk" "regreet" "tuigreet"];
+          type = types.enum [ "gtk" "regreet" "tuigreet" ];
           default = "tuigreet";
           description = "GreetD greeter to use";
         };

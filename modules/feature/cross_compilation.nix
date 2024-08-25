@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.feature.development.crosscompilation;
 in
-  with lib;
+with lib;
 {
   options = {
     host.feature.development.crosscompilation = {

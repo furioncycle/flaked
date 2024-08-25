@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
-  with lib;
+with lib;
 {
   options = {
     host.user.root = {
@@ -19,8 +19,8 @@
     };
 
     # sops.secrets.root-password = {
-      # sopsFile = mkDefault ../secrets.yaml;
-      # neededForUsers = mkDefault true;
+    # sopsFile = mkDefault ../secrets.yaml;
+    # neededForUsers = mkDefault true;
     # };
   };
 }

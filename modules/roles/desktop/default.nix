@@ -2,7 +2,7 @@
 let
   role = config.host.role;
 in
-  with lib;
+with lib;
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -25,8 +25,8 @@ in
           enable = mkDefault true;
         };
         graphics = {
-          enable = mkDefault true;            # We're working with a GUI here
-          acceleration = mkDefault true;      # Since we have a GUI, we want openGL
+          enable = mkDefault true; # We're working with a GUI here
+          acceleration = mkDefault true; # Since we have a GUI, we want openGL
         };
         powermanagement.enable = mkDefault true;
         virtualization = {
@@ -53,18 +53,18 @@ in
       };
       hardware = {
         android.enable = mkDefault true;
-        bluetooth.enable = mkDefault true;    # Most wireless cards have bluetooth radios
-        printing.enable = mkDefault true;     # If we don't have access to a physical printer we should be able to remotely print
+        bluetooth.enable = mkDefault true; # Most wireless cards have bluetooth radios
+        printing.enable = mkDefault true; # If we don't have access to a physical printer we should be able to remotely print
         scanning.enable = mkDefault true;
-        sound.enable = mkDefault true;        #
-        webcam.enable = mkDefault true;       # Age of video conferencing
-        wireless.enable = mkDefault true;     # Most systems have some sort of 802.11
-        yubikey.enable = mkDefault true;      #
+        sound.enable = mkDefault true; #
+        webcam.enable = mkDefault true; # Age of video conferencing
+        wireless.enable = mkDefault true; # Most systems have some sort of 802.11
+        yubikey.enable = mkDefault true; #
       };
       network = {
         firewall = {
-          fail2ban.enable = mkDefault true;     #
-          opensnitch.enable = mkDefault false;  # Only activated by opensnitch-ui
+          fail2ban.enable = mkDefault true; #
+          opensnitch.enable = mkDefault false; # Only activated by opensnitch-ui
         };
         vpn = {
           tailscale.enable = mkDefault true;
@@ -81,9 +81,9 @@ in
     };
 
     networking = {
-      networkmanager= {
+      networkmanager = {
         enable = mkDefault true;
       };
     };
- };
+  };
 }

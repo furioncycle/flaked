@@ -1,8 +1,8 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 let
-   cfg = config.host.application.fish;
+  cfg = config.host.application.fish;
 in
-   with lib;
+with lib;
 {
   options = {
     host.application.fish = {

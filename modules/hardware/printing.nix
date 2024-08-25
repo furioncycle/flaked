@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.hardware.printing;
 in
-  with lib;
+with lib;
 {
   options = {
     host.hardware.printing = {
@@ -20,13 +20,14 @@ in
       printing = {
         enable = true;
         drivers = with pkgs;
-        [
-          gutenprint
-          hplip
-        ];
+          [
+            gutenprint
+            hplip
+          ];
       };
 
-      avahi = { # required for network discovery of printers
+      avahi = {
+        # required for network discovery of printers
         enable = true;
         nssmdns4 = true; # resolve .local domains for printers
         openFirewall = true;
@@ -34,7 +35,7 @@ in
     };
 
     host.filesystem.impermanence.directories = mkIf config.host.filesystem.impermanence.enable [
-      "/var/lib/cups"          # CUPS
+      "/var/lib/cups" # CUPS
     ];
   };
 }

@@ -1,10 +1,10 @@
-{ config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.feature.powermanagement;
   MHz = x: x * 1000;
 in
-  with lib;
+with lib;
 {
   options = {
     host.feature.powermanagement = {

@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.application.rsync;
 in
-  with lib;
+with lib;
 {
   options = {
     host.application.rsync = {

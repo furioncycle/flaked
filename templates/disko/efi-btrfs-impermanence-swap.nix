@@ -5,7 +5,7 @@ in
   disko.devices = {
     disk = {
       ${rawdisk1} = {
-        device = "${rawdisk1}" ;
+        device = "${rawdisk1}";
         type = "disk";
         content = {
           type = "gpt";
@@ -14,7 +14,7 @@ in
               label = "EFI";
               name = "ESP";
               size = "1024M";
-              type = "EF00" ;
+              type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";

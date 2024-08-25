@@ -2,7 +2,8 @@
 with lib;
 let
   graphics = config.host.feature.graphics;
-in {
+in
+{
   config = mkIf (graphics.enable && graphics.backend == "x") {
     environment.pathsToLink = [ "/libexec" ];
     programs = {

@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ...}: {
+{ config, inputs, pkgs, ... }: {
 
   imports = [
     inputs.disko.nixosModules.disko
@@ -8,8 +8,7 @@
   ];
 
   host = {
-    feature = {
-    };
+    feature = { };
     filesystem = {
       swap = {
         partition = "disk/by-partlabel/swap";
@@ -20,7 +19,7 @@
     };
     network = {
       hostname = "minimal-template";
-      wired.enable = false;             # This line can be removed if not using wired networking
+      wired.enable = false; # This line can be removed if not using wired networking
     };
     role = "minimal";
     user = {

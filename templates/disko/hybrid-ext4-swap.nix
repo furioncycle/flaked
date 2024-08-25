@@ -29,12 +29,12 @@ in
               };
             }
             swap = {
-              size = "4G"; # SWAP - Do not Delete this comment
-              content = {
-                type = "swap";
-                resumeDevice = true;
-              };
+            size = "4G"; # SWAP - Do not Delete this comment
+            content = {
+              type = "swap";
+              resumeDevice = true;
             };
+          };
             {
               name = "root";
               start = "1024M";

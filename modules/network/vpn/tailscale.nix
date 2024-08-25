@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.network.vpn.tailscale;
 in
-  with lib;
+with lib;
 {
   options = {
     host.network.vpn.tailscale = {

@@ -1,5 +1,5 @@
-{lib, ...}:
-  with lib;
+{ lib, ... }:
+with lib;
 {
   imports = [
     ./efi.nix

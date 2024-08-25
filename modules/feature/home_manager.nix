@@ -2,7 +2,7 @@
 let
   cfg = config.host.feature.home-manager;
 in
-  with lib;
+with lib;
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager

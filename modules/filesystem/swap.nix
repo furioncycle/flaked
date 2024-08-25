@@ -1,13 +1,13 @@
- {config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.filesystem.swap;
   swap_location =
     if cfg.type == "file"
     then cfg.file
-    else "/dev/"+cfg.partition;
+    else "/dev/" + cfg.partition;
 in
-  with lib;
+with lib;
 {
   options = {
     host.filesystem.swap = {
@@ -18,7 +18,7 @@ in
       };
       type = mkOption {
         default = null;
-        type = types.enum ["file" "partition"];
+        type = types.enum [ "file" "partition" ];
         description = "Swap Type";
       };
       encrypt = mkOption {
@@ -37,7 +37,7 @@ in
         example = "sda2";
         description = "Partition to be used for swap";
       };
-      size= mkOption {
+      size = mkOption {
         type = with types; int;
         default = 8192;
         description = "Size in Megabytes";
@@ -69,27 +69,28 @@ in
       }];
     })
 
-  {
-    #(!config.host.hardware.raid.enable) &&
-    systemd.services = mkIf ((cfg.type == "file") &&  (cfg.enable)) {
-      create-swapfile =  {
-        serviceConfig.Type = "oneshot";
-        wantedBy = [ "swap-swapfile.swap" ];
-        script = ''
-          swapfile="${cfg.file}"
-          if [ -f "$swapfile" ]; then
-              echo "Swap file $swapfile already exists, taking no action"
-          else
-              echo "Setting up swap file $swapfile"
-              ${pkgs.coreutils}/bin/truncate -s 0 "$swapfile"
-              ${pkgs.e2fsprogs}/bin/chattr +C "$swapfile"
-              ${pkgs.btrfs-progs}/bin/btrfs property set "$swapfile" compression none
-              ${pkgs.coreutils}/bin/dd if=/dev/zero of="$swapfile bs=1M count=${cfg.size} status=progress
-              ${pkgs.coreutils}chmod 0600 ${swapfile}
-              ${pkgs.util-linux}/bin/mkswap ${swapfile}
-          fi
-        '';
+    {
+      #(!config.host.hardware.raid.enable) &&
+      systemd.services = mkIf ((cfg.type == "file") && (cfg.enable)) {
+        create-swapfile = {
+          serviceConfig.Type = "oneshot";
+          wantedBy = [ "swap-swapfile.swap" ];
+          script = ''
+            swapfile="${cfg.file}"
+            if [ -f "$swapfile" ]; then
+                echo "Swap file $swapfile already exists, taking no action"
+            else
+                echo "Setting up swap file $swapfile"
+                ${pkgs.coreutils}/bin/truncate -s 0 "$swapfile"
+                ${pkgs.e2fsprogs}/bin/chattr +C "$swapfile"
+                ${pkgs.btrfs-progs}/bin/btrfs property set "$swapfile" compression none
+                ${pkgs.coreutils}/bin/dd if=/dev/zero of="$swapfile bs=1M count=${cfg.size} status=progress
+                ${pkgs.coreutils}chmod 0600 ${swapfile}
+                ${pkgs.util-linux}/bin/mkswap ${swapfile}
+            fi
+          '';
+        };
       };
-    };
-  }];
+    }
+  ];
 }

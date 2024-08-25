@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.application.e2fsprogs;
 in
-  with lib;
+with lib;
 {
   options = {
     host.application.e2fsprogs = {

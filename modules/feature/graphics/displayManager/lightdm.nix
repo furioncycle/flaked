@@ -14,7 +14,7 @@ with lib;
     host.feature.graphics.displayManager.lightdm = {
       greeter = {
         name = mkOption {
-          type = types.enum ["enso" "gtk" "mini" "mobile" "pantheon" "slick" "tiny"];
+          type = types.enum [ "enso" "gtk" "mini" "mobile" "pantheon" "slick" "tiny" ];
           default = "enso";
           description = "LightDM Greeter to use";
         };

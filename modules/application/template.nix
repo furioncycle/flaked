@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.application.changeme;
 in
-  with lib;
+with lib;
 {
   options = {
     host.application.changeme = {
@@ -19,9 +19,7 @@ in
     environment.systemPackages = with pkgs; [
     ];
 
-    programs.changeme = {
-
-    };
+    programs.changeme = { };
 
   };
 }

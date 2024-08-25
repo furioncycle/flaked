@@ -43,10 +43,10 @@
       racket
       jdk
     ];
-    nativeBuildInputs = [ pkgs. makeWrapper ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
 
     shellHook = ''
-       raco pkg install --auto forge froglet
+      raco pkg install --auto forge froglet
     '';
   };
   tla = pkgs.mkShell {
@@ -59,6 +59,6 @@
       uiua
     ];
   };
-  
-  
+
+
 }

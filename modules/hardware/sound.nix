@@ -1,4 +1,4 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.hardware.sound;
@@ -243,7 +243,7 @@ let
     esac
   '';
 in
-  with lib;
+with lib;
 {
   options = {
     host.hardware.sound = {

@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ...}: {
+{ config, inputs, pkgs, ... }: {
 
   imports = [
     inputs.disko.nixosModules.disko
@@ -15,7 +15,7 @@
       };
     };
     filesystem = {
-      encryption.enable = false;   # This line can be removed if not needed as it is already default set by the role template
+      encryption.enable = false; # This line can be removed if not needed as it is already default set by the role template
       impermanence.enable = true; # This line can be removed if not needed as it is already default set by the role template
       swap = {
         partition = "disk/by-partlabel/swap";
@@ -30,7 +30,7 @@
     };
     network = {
       hostname = "vm-template";
-      wired.enable = false;             # This line can be removed if not using wired networking
+      wired.enable = false; # This line can be removed if not using wired networking
     };
     role = "vm";
     user = {

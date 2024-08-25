@@ -1,6 +1,4 @@
-
-
-{ config, inputs, pkgs, ...}: {
+{ config, inputs, pkgs, ... }: {
 
   imports = [
     inputs.nur.nixosModules.nur
@@ -28,7 +26,7 @@
         backend = "x";
         # displayManager.manager = "sddm";
         # windowManager.manager = "hyprland";
-        
+
       };
     };
     filesystem = {

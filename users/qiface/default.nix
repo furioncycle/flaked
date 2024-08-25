@@ -1,8 +1,8 @@
-{ config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 let
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in
-  with lib;
+with lib;
 {
   options = {
     host.user.qiface = {
@@ -16,21 +16,21 @@ in
 
   config = mkIf config.host.user.qiface.enable {
     users.users.qiface = {
-        isNormalUser = true;
-        shell = pkgs.bashInteractive;
-        uid = 4200;
-        group = "users";
-        extraGroups = [
-          "wheel"
-          "video"
-          "audio"
-        ] ++ ifTheyExist [
-          "input"
-          "lp"
-          "network"
-        ];
+      isNormalUser = true;
+      shell = pkgs.bashInteractive;
+      uid = 4200;
+      group = "users";
+      extraGroups = [
+        "wheel"
+        "video"
+        "audio"
+      ] ++ ifTheyExist [
+        "input"
+        "lp"
+        "network"
+      ];
 
-        initialPassword = "1234";
+      initialPassword = "1234";
     };
   };
 }

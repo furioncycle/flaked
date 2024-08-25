@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.service.syncthing;
 in
-  with lib;
+with lib;
 {
   options = {
     host.service.syncthing = {

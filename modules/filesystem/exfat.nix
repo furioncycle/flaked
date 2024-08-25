@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.filesystem.exfat;
 in
-  with lib;
+with lib;
 {
   options = {
     host.filesystem.exfat = {
@@ -22,7 +22,7 @@ in
       ];
     };
 
-    environment.systemPackages =  with pkgs; [
+    environment.systemPackages = with pkgs; [
       exfatprogs
     ];
   };

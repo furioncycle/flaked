@@ -1,9 +1,9 @@
-{config, inputs, lib, pkgs, ...}:
+{ config, inputs, lib, pkgs, ... }:
 
 let
   cfg = config.host.service.vscode_server;
 in
-  with lib;
+with lib;
 {
   imports = [
     inputs.vscode-server.nixosModules.default

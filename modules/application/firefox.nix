@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.application.firefox;
 in
-  with lib;
+with lib;
 {
   options = {
     host.application.firefox = {
@@ -18,6 +18,6 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       firefox
-   ];
+    ];
   };
 }

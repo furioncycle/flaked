@@ -6,7 +6,8 @@ let
   # do note that it might break some stuff, e.g. webcam
   sys = config.host.hardware;
   cfg = config.host.feature.security;
-in {
+in
+{
   options = {
     host.feature.security = {
       enable = mkOption {

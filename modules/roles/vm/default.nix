@@ -1,8 +1,8 @@
-{ config, inputs, lib, modulesPath, pkgs, ...}:
+{ config, inputs, lib, modulesPath, pkgs, ... }:
 let
   role = config.host.role;
 in
-  with lib;
+with lib;
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -10,7 +10,8 @@ in
   ];
 
   config = mkIf (role == "vm") {
-    documentation = {                                 # This makes some nix commands not display --help
+    documentation = {
+      # This makes some nix commands not display --help
       enable = mkDefault false;
       info.enable = mkDefault false;
       man.enable = mkDefault false;
@@ -24,7 +25,7 @@ in
           graphical.enable = mkDefault false;
         };
         graphics = {
-          enable = mkDefault false;                   # Maybe if we were doing openCL
+          enable = mkDefault false; # Maybe if we were doing openCL
         };
         powermanagement = {
           enable = mkDefault true;
@@ -66,15 +67,15 @@ in
     };
 
     networking = {
-      networkmanager= {
+      networkmanager = {
         enable = mkDefault true;
       };
     };
 
-    services.qemuGuest.enable = mkDefault true;        # Make the assumption we're using QEMU
+    services.qemuGuest.enable = mkDefault true; # Make the assumption we're using QEMU
 
     systemd = {
-      enableEmergencyMode = mkDefault false;           # Allow system to continue booting in headless mode.
+      enableEmergencyMode = mkDefault false; # Allow system to continue booting in headless mode.
       sleep.extraConfig = ''
         AllowSuspend=no
         AllowHibernation=no

@@ -1,23 +1,23 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.network.wired;
   defaultIP =
-  if ((cfg.ip == "0.0.0.0/0") && (cfg.type == "static"))
-  then true
-  else false;
+    if ((cfg.ip == "0.0.0.0/0") && (cfg.type == "static"))
+    then true
+    else false;
 
   defaultGW =
-  if ((cfg.gateway == "0.0.0.0") && (cfg.type == "static"))
-  then true
-  else false;
+    if ((cfg.gateway == "0.0.0.0") && (cfg.type == "static"))
+    then true
+    else false;
 
   defaultMAC =
-  if ((cfg.mac == "null") && (cfg.type == "static"))
-  then true
-  else false;
+    if ((cfg.mac == "null") && (cfg.type == "static"))
+    then true
+    else false;
 in
-  with lib;
+with lib;
 {
   options = {
     host.network.wired = {
@@ -27,7 +27,7 @@ in
         description = "Manage simple network addressing functions for easier configuration";
       };
       type = mkOption {
-        type = with types; enum ["static" "dynamic"];
+        type = with types; enum [ "static" "dynamic" ];
         default = "static";
         description = "Whether to static of dynamically set IP addresses";
       };
@@ -79,23 +79,23 @@ in
         enable = true;
         networks = {
           "${config.host.network.hostname}" = {
-             networkConfig.DHCP = mkIf (cfg.type == "dynamic") "yes";
-             matchConfig.MACAddress = cfg.mac ;
-             address = mkIf (cfg.type == "static") [
-               cfg.ip
-             ];
-             #dns = mkIf (cfg.type == "static") [ ## TODO FIX THIS
-             #  "1.1.1.1"
-             #  "1.0.0.1"
-             #];
-             #dns = mkIf (cfg.type == "static") [
-#
-             #] ++ cfg.dns ;
-             routes = mkIf (cfg.type == "static") [
-               { routeConfig.Gateway =  cfg.gateway ; }
-             ];
-             linkConfig.RequiredForOnline = mkIf (cfg.type == "static") "routable" ;
-           };
+            networkConfig.DHCP = mkIf (cfg.type == "dynamic") "yes";
+            matchConfig.MACAddress = cfg.mac;
+            address = mkIf (cfg.type == "static") [
+              cfg.ip
+            ];
+            #dns = mkIf (cfg.type == "static") [ ## TODO FIX THIS
+            #  "1.1.1.1"
+            #  "1.0.0.1"
+            #];
+            #dns = mkIf (cfg.type == "static") [
+            #
+            #] ++ cfg.dns ;
+            routes = mkIf (cfg.type == "static") [
+              { routeConfig.Gateway = cfg.gateway; }
+            ];
+            linkConfig.RequiredForOnline = mkIf (cfg.type == "static") "routable";
+          };
         };
       };
     };

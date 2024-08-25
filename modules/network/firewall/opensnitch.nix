@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.network.firewall.opensnitch;
 in
-  with lib;
+with lib;
 {
   options = {
     host.network.firewall.opensnitch = {
@@ -19,13 +19,12 @@ in
     services = {
       opensnitch = {
         enable = true;
-        rules = {
-        };
+        rules = { };
       };
     };
 
     host.filesystem.impermanence.directories = lib.mkIf config.host.filesystem.impermanence.enable [
-      "/var/lib/opensnitch"          # Opensnitch
+      "/var/lib/opensnitch" # Opensnitch
     ];
   };
 }

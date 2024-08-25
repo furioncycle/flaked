@@ -1,10 +1,10 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.filesystem.tmp.tmpfs;
 in
-  with lib;
-  with types;
+with lib;
+with types;
 {
   options = {
     host.filesystem.tmp.tmpfs = {
@@ -14,7 +14,7 @@ in
         description = "Enables tmpfs on /tmp mount during boot";
       };
       size = mkOption {
-       default = "50%";
+        default = "50%";
         type = with types; oneOf [ types.str types.types.ints.positive ];
         description = "Size of TMPFS";
       };

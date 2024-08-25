@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.hardware.touchpad;
 in
-  with lib;
+with lib;
 {
   options = {
     host.hardware.touchpad = {
@@ -37,9 +37,9 @@ in
       xserver.libinput = {
         enable = true;
         # mouse = {
-          # accelProfile = mkDefault "flat";
-          # accelSpeed = mkDefault "0";
-          # middleEmulation = mkDefault false;
+        # accelProfile = mkDefault "flat";
+        # accelSpeed = mkDefault "0";
+        # middleEmulation = mkDefault false;
         # };
         touchpad = {
           clickMethod = "clickfinger";

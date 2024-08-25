@@ -8,7 +8,7 @@ let
   keys = builtins.filter isEd25519 config.services.openssh.hostKeys;
   cfg = config.host.feature.secrets;
 in
-  with lib;
+with lib;
 {
   imports = [
     inputs.sops-nix.nixosModules.sops

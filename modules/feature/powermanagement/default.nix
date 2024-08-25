@@ -1,4 +1,4 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.feature.powermanagement;
@@ -7,7 +7,7 @@ let
     then true
     else false;
 in
-  with lib;
+with lib;
 {
   imports = [
     ./tlp.nix
@@ -29,13 +29,13 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      hdparm                # Hard Drive management
+      hdparm # Hard Drive management
       power-profiles-daemon # dbus power profiles
-      smartmontools         # SMART montioring
+      smartmontools # SMART montioring
     ];
 
     powerManagement = {
-      enable = true ;
+      enable = true;
     };
 
     services = {

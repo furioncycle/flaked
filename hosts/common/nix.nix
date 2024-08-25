@@ -1,5 +1,5 @@
 { inputs, lib, outputs, pkgs, ... }:
-  with lib;
+with lib;
 {
   environment = {
     systemPackages = with pkgs; [

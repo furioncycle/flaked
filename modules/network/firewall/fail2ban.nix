@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.network.firewall.fail2ban;
 in
-  with lib;
+with lib;
 {
   options = {
     host.network.firewall.fail2ban = {
@@ -46,12 +46,11 @@ in
         maxretry = mkDefault 5;
       };
 
-      logrotate.settings."/var/log/fail2ban/fail2ban.log" = {
-      };
+      logrotate.settings."/var/log/fail2ban/fail2ban.log" = { };
     };
 
     host.filesystem.impermanence.directories = lib.mkIf config.host.filesystem.impermanence.enable [
-      "/var/lib/fail2ban"                # Fail2ban Database
+      "/var/lib/fail2ban" # Fail2ban Database
     ];
   };
 }

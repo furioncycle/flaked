@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.hardware.yubikey;
 in
-  with lib;
+with lib;
 {
   options = {
     host.hardware.yubikey = {
@@ -29,7 +29,7 @@ in
 
     services = {
       pcscd.enable = true;
-      udev.packages = [pkgs.yubikey-personalization];
+      udev.packages = [ pkgs.yubikey-personalization ];
     };
 
     programs = {

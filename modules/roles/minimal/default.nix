@@ -2,7 +2,7 @@
 let
   role = config.host.role;
 in
-  with lib;
+with lib;
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")

@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.hardware.bluetooth;
 in
-  with lib;
+with lib;
 {
   options = {
     host.hardware.bluetooth = {
@@ -22,7 +22,7 @@ in
       package = pkgs.bluez5-experimental;
       #hsphfpd.enable = true;
       powerOnBoot = true;
-      disabledPlugins = ["sap"];
+      disabledPlugins = [ "sap" ];
       settings = {
         General = {
           JustWorksRepairing = "always";
@@ -34,7 +34,7 @@ in
     services.blueman.enable = true;
 
     host.filesystem.impermanence.directories = mkIf config.host.filesystem.impermanence.enable [
-      "/var/lib/bluetooth"               # Bluetooth
+      "/var/lib/bluetooth" # Bluetooth
     ];
   };
 }

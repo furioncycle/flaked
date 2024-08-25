@@ -4,11 +4,12 @@ let
   inherit (specialArgs) kioskUsername kioskURL;
 
   graphics = config.host.feature.graphics;
-in {
+in
+{
   config = mkIf (graphics.enable && graphics.backend == "wayland") {
     environment.pathsToLink = [ "/libexec" ];
 
-    programs =  {
+    programs = {
       dconf.enable = mkDefault true;
       seahorse.enable = mkDefault true;
     };
@@ -17,10 +18,10 @@ in {
       pam = {
         services.gdm.enableGnomeKeyring = mkDefault true;
         services.swaylock.text = mkDefault ''
-         # PAM configuration file for the swaylock screen locker. By default, it includes
-         # the 'login' configuration file (see /etc/pam.d/login)
-         auth include login
-       '';
+          # PAM configuration file for the swaylock screen locker. By default, it includes
+          # the 'login' configuration file (see /etc/pam.d/login)
+          auth include login
+        '';
       };
       polkit = {
         enable = mkDefault true;

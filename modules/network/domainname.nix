@@ -1,12 +1,12 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   defaultDomainname =
-  if (config.host.network.domainname == "null")
-  then true
-  else false;
+    if (config.host.network.domainname == "null")
+    then true
+    else false;
 in
-  with lib;
+with lib;
 {
   options = {
     host.network.domainname = mkOption {
