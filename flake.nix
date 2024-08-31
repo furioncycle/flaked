@@ -63,6 +63,12 @@
             '';
             path = ./templates/dafny;
           };
+          ada = {
+            description = ''
+              Everything needed to run ada
+            '';
+            path = ./templates/dafny;
+          };
         };
       };
       systems = [
