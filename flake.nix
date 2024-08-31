@@ -67,7 +67,7 @@
             description = ''
               Everything needed to run ada
             '';
-            path = ./templates/dafny;
+            path = ./templates/ada;
           };
         };
       };
