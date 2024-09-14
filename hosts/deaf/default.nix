@@ -38,7 +38,7 @@
       cpu = "intel";
       gpu = "intel";
       sound = {
-        server = "pulseaudio";
+        server = "pipewire";
       };
     };
     network = {
