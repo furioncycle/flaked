@@ -41,7 +41,7 @@ with lib;
         # android.enable = mkDefault true;
         backlight.enable = mkDefault true; # Most laptops have a backlight
         bluetooth.enable = mkDefault true; # Most wireless cards have bluetooth radios
-        printing.enable = mkDefault false; # If we don't have access to a physical printer we should be able to remotely print
+        # printing.enable = mkDefault false; # If we don't have access to a physical printer we should be able to remotely print
         scanning.enable = mkDefault false;
         sound.enable = mkDefault true; #
         touchpad.enable = mkDefault true; # We want this most of the time
