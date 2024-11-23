@@ -4,6 +4,7 @@ with lib;
 {
   imports = [
     ./firewall
+    ./blocker.nix
     ./domainname.nix
     ./hostname.nix
     ./vpn
