@@ -24,8 +24,6 @@
       graphics = {
         enable = true;
         backend = "x";
-        # displayManager.manager = "sddm";
-        # windowManager.manager = "hyprland";
 
       };
     };

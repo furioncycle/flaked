@@ -48,9 +48,5 @@ with lib;
 
       logrotate.settings."/var/log/fail2ban/fail2ban.log" = { };
     };
-
-    host.filesystem.impermanence.directories = lib.mkIf config.host.filesystem.impermanence.enable [
-      "/var/lib/fail2ban" # Fail2ban Database
-    ];
   };
 }

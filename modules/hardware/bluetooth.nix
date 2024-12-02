@@ -33,8 +33,5 @@ with lib;
 
     services.blueman.enable = true;
 
-    host.filesystem.impermanence.directories = mkIf config.host.filesystem.impermanence.enable [
-      "/var/lib/bluetooth" # Bluetooth
-    ];
   };
 }

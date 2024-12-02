@@ -296,8 +296,5 @@ with lib;
       enable = true;
     };
 
-    host.filesystem.impermanence.directories = mkIf (cfg.enable && cfg.server == "pipewire" && config.host.filesystem.impermanence.enable) [
-      "/var/lib/pipewire"
-    ];
   };
 }

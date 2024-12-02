@@ -24,7 +24,7 @@
       graphics = {
         enable = true;
         backend = "wayland";
-        windowManager.manager = "hyprland";
+        windowManager.manager = "sway";
         displayManager.manager = "sddm";
       };
     };

@@ -1,4 +1,4 @@
-{ config, outputs, lib, pkgs, ... }:
+{ outputs, lib, pkgs, ... }:
 with lib;
 {
   imports = [
@@ -8,17 +8,6 @@ with lib;
   ] ++ (builtins.attrValues outputs.nixosModules);
 
   boot = {
-    # initrd = {
-    #   compressor = mkDefault "zstd";
-    #   compressorArgs = mkDefault ["-19"];
-
-    #   systemd = {
-    #     strip = mkDefault true;                         # Saves considerable space in initrd
-    #   };
-    # };
-    # kernel.sysctl = {
-    #   "vm.dirty_ratio" = mkDefault 6;                   # sync disk when buffer reach 6% of memory
-    # };
     kernelPackages = pkgs.linuxPackages_latest; # Latest kernel
   };
 
@@ -32,13 +21,10 @@ with lib;
   host = {
     application = {
       bash.enable = mkDefault true;
-      # bind.enable = mkDefault true;
       binutils.enable = mkDefault true;
       coreutils.enable = mkDefault true;
       curl.enable = mkDefault true;
-      # diceware.enable = mkDefault true;
       dust.enable = mkDefault true;
-      # e2fsprogs.enable = mkDefault true;
       fish.enable = mkDefault true;
       fzf.enable = mkDefault true;
       git.enable = mkDefault true;
@@ -51,19 +37,16 @@ with lib;
       links.enable = mkDefault true;
       lsof.enable = mkDefault true;
       mtr.enable = mkDefault true;
-      # nano.enable = mkDefault true;
       ncdu.enable = mkDefault true;
       pciutils.enable = mkDefault true;
       psmisc.enable = mkDefault true;
       rsync.enable = mkDefault true;
       strace.enable = mkDefault true;
-      # tmux.enable = mkDefault true;
       vim.enable = mkDefault true;
       wget.enable = mkDefault true;
     };
     feature = {
       home-manager.enable = mkDefault true;
-      # secrets.enable = mkDefault true;
     };
     network = {
       domainname = mkDefault "deaf.audio";
@@ -72,10 +55,6 @@ with lib;
       logrotate = {
         enable = mkDefault true;
       };
-      # ssh = {
-      # enable = mkDefault true;
-      #   harden = mkDefault true;
-      # };
     };
   };
   security = {

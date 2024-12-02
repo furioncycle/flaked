@@ -24,10 +24,5 @@ with lib;
       checkReversePath = "loose";
       allowedUDPPorts = [ 41641 ]; # Facilitate firewall punching
     };
-
-    host.filesystem.impermanence.directories = lib.mkIf config.host.filesystem.impermanence.enable [
-      "/var/cache/tailscale"
-      "/var/lib/tailscale"
-    ];
   };
 }

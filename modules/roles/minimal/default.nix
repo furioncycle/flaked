@@ -25,13 +25,6 @@ with lib;
       };
       filesystem = {
         btrfs.enable = mkDefault false;
-        encryption.enable = mkDefault false;
-        impermanence = {
-          enable = mkDefault false;
-          directories = [
-            "/mnt/"
-          ];
-        };
         swap = {
           enable = mkDefault false;
         };
@@ -52,7 +45,6 @@ with lib;
         logrotate.enable = mkDefault false;
         ssh = {
           enable = mkDefault true;
-          harden = mkDefault true;
         };
       };
     };

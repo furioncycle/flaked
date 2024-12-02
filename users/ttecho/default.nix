@@ -31,14 +31,7 @@ with lib;
         "network"
       ];
 
-      # openssh.authorizedKeys.keys = [ (builtins.readFile ./ssh.pub) ];
       initialPassword = "1234";
-      # hashedPasswordFile = mkDefault config.sops.secrets.ttecho-password.path;
     };
-
-    # sops.secrets.ttecho-password = {
-    #  sopsFile = mkDefault ../secrets.yaml;
-    #   neededForUsers = mkDefault false;
-    # };
   };
 }

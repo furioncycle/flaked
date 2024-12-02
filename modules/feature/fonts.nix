@@ -17,9 +17,7 @@ with lib;
   };
 
   config = mkIf cfg.enable {
-    # all fonts are linked to /nix/var/nix/profiles/system/sw/share/X11/fonts
     fonts = mkIf graphics.enable {
-      # use fonts specified by user rather than default ones
       enableDefaultPackages = false;
       fontDir.enable = true;
 
@@ -35,12 +33,6 @@ with lib;
         cache32Bit = mkDefault true;
         hinting.enable = mkDefault true;
         hinting.autohint = mkDefault true;
-        # defaultFonts = {
-        # serif = [ "Noto Serif Nerd Font" "Noto Color Emoji" ];
-        # sansSerif = [ "Noto Sans Nerd Font" "Noto Color Emoji" ];
-        # monospace = [ "JetBrainsMono Nerd Font" "Noto Color Emoji" ];
-        # emoji = [ "Noto Color Emoji" ];
-        # };
       };
     };
   };

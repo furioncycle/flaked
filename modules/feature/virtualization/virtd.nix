@@ -50,11 +50,6 @@ with pkgs;
       security = mkIf cfg_daemon.enable {
         polkit.enable = true;
       };
-
-      host.filesystem.impermanence.directories = mkIf ((config.host.filesystem.impermanence.enable) && (cfg_client.enable)) [
-        "/var/lib/libvirt" # Libvirt
-      ];
-
     }
   ];
 }

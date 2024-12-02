@@ -10,7 +10,6 @@ with lib;
     ./cross_compilation.nix
     ./home_manager.nix
     ./fonts.nix
-    ./secrets.nix
     ./security.nix
   ];
 }

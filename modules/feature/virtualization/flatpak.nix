@@ -35,10 +35,6 @@ with lib;
         "/usr/share/fonts" = mkRoSymBind (aggregatedFonts + "/share/fonts");
       };
 
-    host.filesystem.impermanence.directories = lib.mkIf config.host.filesystem.impermanence.enable [
-      "/var/lib/flatpak" # Flatpak
-    ];
-
     services.flatpak.enable = true;
     system.fsPackages = [ pkgs.bindfs ];
   };

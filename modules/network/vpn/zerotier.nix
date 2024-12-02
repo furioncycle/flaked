@@ -110,26 +110,5 @@ with lib;
         ${metrics_cleanup}
       '';
     };
-
-    sops.secrets = {
-      ## Only read these secrets if the secret exists
-      "zerotier/networks" = mkIf (builtins.pathExists ../../../hosts/${config.host.network.hostname}/secrets/zerotier/networks.yaml) {
-        sopsFile = ../../../hosts/${config.host.network.hostname}/secrets/zerotier/networks.yaml;
-        restartUnits = [ "zerotierone.service" ];
-      };
-      "zerotier/identity_public" = mkIf (builtins.pathExists ../../../hosts/${config.host.network.hostname}/secrets/zerotier/identity.yaml) {
-        sopsFile = ../../../hosts/${config.host.network.hostname}/secrets/zerotier/identity.yaml;
-        restartUnits = [ "zerotierone.service" ];
-      };
-      "zerotier/identity_private" = mkIf (builtins.pathExists ../../../hosts/${config.host.network.hostname}/secrets/zerotier/identity.yaml) {
-        sopsFile = ../../../hosts/${config.host.network.hostname}/secrets/zerotier/identity.yaml;
-        restartUnits = [ "zerotierone.service" ];
-      };
-    };
-
-    ### Not really necessary with above work
-    #host.filesystem.impermanence.directories = lib.mkIf config.host.filesystem.impermanence.enable [
-    #  "/var/cache/zerotier-one"
-    #];
   };
 }

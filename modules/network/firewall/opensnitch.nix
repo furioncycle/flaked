@@ -22,9 +22,5 @@ with lib;
         rules = { };
       };
     };
-
-    host.filesystem.impermanence.directories = lib.mkIf config.host.filesystem.impermanence.enable [
-      "/var/lib/opensnitch" # Opensnitch
-    ];
   };
 }

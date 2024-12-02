@@ -34,8 +34,5 @@ with lib;
       };
     };
 
-    host.filesystem.impermanence.directories = mkIf config.host.filesystem.impermanence.enable [
-      "/var/lib/cups" # CUPS
-    ];
   };
 }

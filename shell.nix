@@ -22,11 +22,11 @@
       ssh-to-age
     ];
   };
-  ada = pkgs.mkShell {
-    buildInputs = with pkgs; [
-      alire
-    ];
-  };
+  # ada = pkgs.mkShell {
+  #   buildInputs = with pkgs; [
+  #     alire
+  #   ];
+  # };
   alloy = pkgs.mkShell {
     buildInputs = with pkgs; [
       alloy6

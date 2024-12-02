@@ -1,7 +1,6 @@
-{ config, inputs, lib, pkgs, specialArgs, ... }:
+{ config, lib, ... }:
 with lib;
 let
-  inherit (specialArgs) kioskUsername kioskURL;
 
   graphics = config.host.feature.graphics;
 in

@@ -4,15 +4,9 @@ let
   mkGraphicalService = lib.recursiveUpdate {
     Unit.PartOf = [ "graphical-session.target" ];
     Unit.After = [ "graphical-session.target" ];
-    Install.WantedBy = [ "graphical-session.target" ];
   };
 
-  mkHyprlandService = lib.recursiveUpdate {
-    Unit.PartOf = [ "graphical-session.target" ];
-    Unit.After = [ "graphical-session.target" ];
-    Install.WantedBy = [ "hyprland-session.target" ];
-  };
 in
 {
-  inherit mkGraphicalService mkHyprlandService;
+  inherit mkGraphicalService;
 }
