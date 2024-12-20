@@ -1,7 +1,7 @@
 { config, inputs, pkgs, ... }: {
 
   imports = [
-    inputs.nur.nixosModules.nur
+    inputs.nur.modules.nixos.default
     ./configuration.nix
     # inputs.disko.nixosModules.disko
     # ./disko-config.nix
