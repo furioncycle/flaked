@@ -17,6 +17,7 @@ with lib;
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
+      libreoffice
       firefox
     ];
   };

@@ -22,7 +22,7 @@ with lib;
     settings = {
       accept-flake-config = true;
       auto-optimise-store = mkDefault true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [ "nix-command" "flakes" "recursive-nix" ];
       # show more log lines for failed builds
       log-lines = 30;
       # Free up to 10GiB whenever there is less than 5GB left.

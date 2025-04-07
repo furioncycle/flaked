@@ -16,17 +16,16 @@ with lib;
   };
 
   config = mkIf cfg.enable {
-    #boot.kernelParams = ["btusb"];
+    boot.kernelParams = [ "btusb" ];
     hardware.bluetooth = {
       enable = true;
-      package = pkgs.bluez5-experimental;
-      #hsphfpd.enable = true;
       powerOnBoot = true;
       disabledPlugins = [ "sap" ];
       settings = {
         General = {
-          JustWorksRepairing = "always";
-          MultiProfile = "multiple";
+          Enable = "Source,Sink,Media,Socket";
+          # JustWorksRepairing = "always";
+          # MultiProfile = "multiple";
         };
       };
     };
