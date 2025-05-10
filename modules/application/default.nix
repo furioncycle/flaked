@@ -5,6 +5,7 @@ with lib;
   imports = [
     ./bash.nix
     ./bind.nix
+    ./blender.nix
     ./binutils.nix
     ./coreutils.nix
     ./curl.nix

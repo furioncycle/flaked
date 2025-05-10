@@ -19,6 +19,7 @@
       firefox = {
         enable = true;
       };
+      blender.enable = true;
     };
     feature = {
       graphics = {

@@ -18,5 +18,15 @@ in
   additions = final: prev: import ../pkgs { pkgs = final; } // { };
 
   # Modifies existing packages
-  modifications = final: prev: { };
+  modifications = final: prev: {
+    auto-cpufreq = prev.auto-cpufreq.overrideAttrs (oldAttrs: {
+      postPatch =
+        oldAttrs.postPatch
+        + ''
+
+              substituteInPlace pyproject.toml \
+              --replace-fail 'psutil = "^6.0.0"' 'psutil = ">=6.0.0,<8.0.0"'
+            '';
+    });
+  };
 }
