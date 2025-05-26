@@ -4,5 +4,6 @@ with lib;
   imports = [
     ./flatpak.nix
     ./virtd.nix
+    ./docker.nix
   ];
 }

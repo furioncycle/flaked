@@ -23,6 +23,9 @@ with lib;
           enable = true;
           laptop = true;
         };
+        virtualization = {
+          docker.enable = true;
+        };
       };
       filesystem = {
         swap = {
