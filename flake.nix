@@ -45,21 +45,11 @@
         };
 
         templates = {
-          dafny = {
+          empty = {
             description = ''
-              Everything needed to run dafny
-
-              TODO - enable ide and compiler
+              Basic starter dev template
             '';
-            path = ./templates/dafny;
-          };
-          ada = {
-            description = ''
-              Everything needed to run ada
-
-              TODO - enable alr 
-            '';
-            path = ./templates/ada;
+            path = ./templates/empty;
           };
         };
       };
