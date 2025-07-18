@@ -49,12 +49,14 @@
       ttecho.enable = true;
       root.enable = true;
     };
+    service.samba.enable = true;
   };
 
   services.xserver = {
     enable = true;
     desktopManager = {
-      cinnamon.enable = true;
+      cinnamon.enable = false;
+      pantheon.enable = true;
       xterm.enable = false;
       session = [
         {
@@ -64,12 +66,12 @@
             waitPID=$!
           '';
         }
-        {
-          name = "cinnamon";
-          start = ''
-            cinnamon
-          '';
-        }
+        # {
+        #   name = "cinnamon";
+        #   start = ''
+        #     cinnamon
+        #   '';
+        # }
       ];
     };
   };
