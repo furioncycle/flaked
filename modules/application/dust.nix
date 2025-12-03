@@ -17,7 +17,7 @@ with lib;
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      du-dust
+      dust
     ];
   };
 }

@@ -43,6 +43,7 @@ with lib;
         webcam.enable = mkDefault false; # Age of video conferencing
         wireless.enable = mkDefault true; # Most systems have some sort of 802.11
         # yubikey.enable = mkDefault true;      #
+        printing.enable = mkDefault false;
       };
       network = { };
 

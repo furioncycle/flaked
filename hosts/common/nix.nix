@@ -6,8 +6,8 @@ with lib;
       git
       nvd
       ripgrep
-      winetricks
-      wineWowPackages.staging
+      # winetricks
+      # wineWowPackages.staging
     ];
   };
 

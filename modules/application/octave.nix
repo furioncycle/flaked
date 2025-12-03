@@ -16,6 +16,9 @@ with lib;
 
   config = mkIf cfg.enable {
     environment.systemPackages = [
+      pkgs.gnumake
+      pkgs.gcc
+      pkgs.gfortran
       pkgs.octaveFull
     ];
   };

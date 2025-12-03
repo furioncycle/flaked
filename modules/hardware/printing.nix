@@ -22,7 +22,7 @@ with lib;
         drivers = with pkgs;
           [
             gutenprint
-            hplip
+            # hplip
           ];
       };
 

@@ -20,12 +20,16 @@
         enable = true;
       };
       blender.enable = true;
+      octave.enable = true;
     };
     feature = {
       graphics = {
         enable = true;
         backend = "x";
 
+      };
+      development.crosscompilation = {
+        enable = false;
       };
     };
     filesystem = {

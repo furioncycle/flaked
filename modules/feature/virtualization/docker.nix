@@ -3,7 +3,6 @@ let
   cfg = config.host.feature.virtualization.docker;
 in
 with lib;
-with pkgs;
 {
   options = {
     host.feature.virtualization.docker = {

@@ -26,6 +26,10 @@ with lib;
 
     networking = {
       domain = config.host.network.domainname;
+      # extraHosts = "
+      # 192.168.0.33 tmo-angel.com
+      # 192.168.0.33 www.tmo-angel.com
+      # ";
     };
   };
 }

@@ -25,6 +25,7 @@ with lib;
     ./lsof.nix
     ./mtr.nix
     ./ncdu.nix
+    ./octave.nix
     ./pciutils.nix
     ./psmisc.nix
     ./rsync.nix

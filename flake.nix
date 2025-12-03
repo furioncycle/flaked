@@ -42,6 +42,7 @@
             modules = [ ./hosts/deaf ];
             specialArgs = { inherit inputs outputs; };
           };
+
         };
 
         templates = {

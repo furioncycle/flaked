@@ -10,7 +10,7 @@ with lib;
       enable = mkOption {
         default = false;
         type = with types; bool;
-        description = "Enables firefox and ladybird browser";
+        description = "Enables firefox browser";
       };
     };
   };
@@ -18,7 +18,8 @@ with lib;
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       libreoffice
-      firefox
+      firefox # TODO - remove
+      librewolf # TODO - make default
     ];
   };
 }
