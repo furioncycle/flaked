@@ -8,7 +8,7 @@ in
     environment.pathsToLink = [ "/libexec" ];
     programs = {
       dconf.enable = mkDefault true;
-      seahorse.enable = mkDefault true;
+      # seahorse.enable = mkDefault true;
     };
 
     security = {

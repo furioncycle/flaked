@@ -56,11 +56,11 @@
     service.samba.enable = true;
   };
 
-  services.xserver = {
-    enable = true;
-    desktopManager = {
+  services = {
+    xserver.enable = true;
+    desktopManager.plasma6.enable = true;
+    xserver.desktopManager = {
       cinnamon.enable = false;
-      pantheon.enable = true;
       xterm.enable = false;
       session = [
         {

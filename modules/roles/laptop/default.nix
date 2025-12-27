@@ -24,7 +24,7 @@ with lib;
           laptop = true;
         };
         virtualization = {
-          docker.enable = true;
+          docker.enable = false;
         };
       };
       filesystem = {
