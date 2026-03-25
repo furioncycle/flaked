@@ -25,6 +25,10 @@ with lib;
         };
         virtualization = {
           docker.enable = false;
+          virtd = {
+            client.enable = true;
+            daemon.enable = true;
+          };
         };
       };
       filesystem = {

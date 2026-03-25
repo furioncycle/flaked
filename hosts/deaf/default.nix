@@ -53,7 +53,7 @@
       ttecho.enable = true;
       root.enable = true;
     };
-    service.samba.enable = true;
+    service.samba.enable = false;
   };
 
   services = {

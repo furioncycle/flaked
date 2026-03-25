@@ -16,7 +16,6 @@ with lib;
   };
 
   config = mkIf cfg.enable {
-    programs.light.enable = true;
     services.actkbd = {
       enable = true;
       bindings = [
